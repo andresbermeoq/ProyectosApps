@@ -70,12 +70,17 @@ public class LoginBean {
 		try {
 			persona = personaDAO.findPersona(email, password);
 			SessionUtils.setInfoUsuarioLogeado(persona);
-			return "Persona.xhtml";
+			return "Comentario.xhtml";
 		} catch (Exception e) {
 			email = "";
 			password = "";
 		}		
 		return null;
+	}
+	
+	public String inValidate() {
+		SessionUtils.getSession().invalidate();
+		return "Login.xhtml";
 	}
 
 }

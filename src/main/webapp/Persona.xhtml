@@ -9,11 +9,10 @@
 
 	<h1>Registro de Personas</h1>
 	
-	Bienvenido: <h:outputText value="#{personaBean.personaLogeada.personaNombre}" />
+	
 	
 	<h:form>
 		<h:panelGrid columns="2">
-
 			<h:outputLabel value="Nombre" />
 			<h:inputText value="#{personaBean.persona.personaNombre}" />
 			<h:outputLabel value="Email" />
@@ -21,9 +20,6 @@
 			<h:outputLabel value="Password" />
 			<h:inputText value="#{personaBean.persona.personaPassword}" />
 			<h:commandButton action="#{personaBean.saveUser()}" value="Guardar" />
-			<a href="Comentario.xhtml">Personas</a>
-			
-		
 		</h:panelGrid>
 	</h:form>
 

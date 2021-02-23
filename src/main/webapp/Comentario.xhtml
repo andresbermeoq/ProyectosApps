@@ -7,25 +7,31 @@
 <h:head></h:head> 
 <body> 
 
-	<h:dataTable value="#{personaBean.allUsers()}" var="datosUsuarios">
-		<h:column>
-			<f:facet name="header">Id</f:facet>
-			#{datosUsuarios.personaId}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Nombre</f:facet>
-			#{datosUsuarios.personaNombre}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Email</f:facet>
-			#{datosUsuarios.personaEmail}
-		</h:column>
-		<h:column>
-			<f:facet name="header">Password</f:facet>
-			#{datosUsuarios.personaPassword}
-		</h:column>
+	Bienvenido: <h:outputText value="#{personaBean.personaLogeada.personaNombre}" />
+	
+	<h:form>
+		<h:commandButton action="#{loginBean.inValidate()}" value="Salir" />
+	</h:form>
+	
+	<h:form>
+		<h:outputText value="Comentario" />
+		<h:inputText value="#{personaBean.comentario.comentarioString}" />
 		
+		<h:commandButton action="#{personaBean.writeComment()}" value="Comentar"/>
+	</h:form>
+
+	<h:dataTable value="#{personaBean.allComentarios()}" var="comentarios">
+		<h:column>
+			<f:facet name="header">Comentarios</f:facet>
+			#{comentarios.comentarioString}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Usuarios</f:facet>
+			#{comentarios.persona.personaNombre}
+		</h:column>
 	</h:dataTable>
+	
+	
 
 </body> 
 </html>

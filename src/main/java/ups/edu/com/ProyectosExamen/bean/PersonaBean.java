@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ups.edu.com.ProyectosExamen.DAO.ComentarioDAO;
 import ups.edu.com.ProyectosExamen.DAO.PersonaDAO;
 import ups.edu.com.ProyectosExamen.gestion.GestionComentariosON;
 import ups.edu.com.ProyectosExamen.modelo.Comentario;
@@ -19,6 +20,9 @@ public class PersonaBean {
 	
 	@Inject
 	private PersonaDAO personaDAO;
+	
+	@Inject
+	private ComentarioDAO comentarioDAO;
 	
 	private Persona persona;
 	private Persona personaLogeada;
@@ -68,6 +72,16 @@ public class PersonaBean {
 	}
 	
 	
+	public ComentarioDAO getComentarioDAO() {
+		return comentarioDAO;
+	}
+
+
+	public void setComentarioDAO(ComentarioDAO comentarioDAO) {
+		this.comentarioDAO = comentarioDAO;
+	}
+
+
 	public String saveUser() {
 		personaDAO.savePerson(persona);
 		return "Persona Guardada";
@@ -77,10 +91,14 @@ public class PersonaBean {
 		return personaDAO.findAllPersons();
 	}
 	
+	public String writeComment() {
+		comentario.setPersona(personaLogeada);
+		comentarioDAO.saveComment(comentario);
+		return null;
+	}
 	
-	
-	
-	
-	
+	public List<Comentario> allComentarios() {
+		return comentarioDAO.findAllComments();
+	}
 
 }

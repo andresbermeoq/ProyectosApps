@@ -12,16 +12,19 @@
 	
 	<h:form>
 		<h:panelGrid columns="2">
-
-			<h:outputLabel value="Emaila" />
+			<h:outputLabel value="Email" />
 			<h:inputText value="#{loginBean.email}" />
 			<h:outputLabel value="Password" />
 			<h:inputText value="#{loginBean.password}" />
 			<h:commandButton action="#{loginBean.validate()}" value="Ingresar" />
-			
-		
 		</h:panelGrid>
 	</h:form>
+	
+	<h:form>
+		<h:commandButton action="Persona" value="Registro" />
+	</h:form>
+	
+	
 
 </body> 
 </html>
