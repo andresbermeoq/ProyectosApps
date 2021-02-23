@@ -56,6 +56,14 @@ public class GestionComentariosON implements PersonaDAO, ComentarioDAO {
 		query.setParameter("Persona", isPersona);
 		return query.getResultList();
 	}
+
+	@Override
+	public Persona findPersona(String email, String password) {
+		Query query = entityManager.createQuery("FROM Persona p WHERE p.personaEmail = :email AND p.personaPassword = :password");
+		query.setParameter("email", email);
+		query.setParameter("password", password);
+		return (Persona) query.getSingleResult();
+	}
 	
 	
 

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,9 +34,11 @@ public class Persona implements Serializable {
 	private String personaNombre;
 	@Column(name = "persona_password")
 	private String personaPassword;
+	@Column(name = "persona_email")
+	private String personaEmail;
 	
 	
-	@OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "persona", cascade = CascadeType.ALL)
 	private List<Comentario> comentario;
 
 	
@@ -79,11 +82,22 @@ public class Persona implements Serializable {
 	}
 
 
+	public String getPersonaEmail() {
+		return personaEmail;
+	}
+
+
+	public void setPersonaEmail(String personaEmail) {
+		this.personaEmail = personaEmail;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Persona [personaId=" + personaId + ", personaNombre=" + personaNombre + ", personaPassword="
-				+ personaPassword + ", comentario=" + comentario + "]";
+				+ personaPassword + ", personaEmail=" + personaEmail + ", comentario=" + comentario + "]";
 	}
+
 	
 	
 	

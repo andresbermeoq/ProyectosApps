@@ -11,6 +11,7 @@ import ups.edu.com.ProyectosExamen.DAO.PersonaDAO;
 import ups.edu.com.ProyectosExamen.gestion.GestionComentariosON;
 import ups.edu.com.ProyectosExamen.modelo.Comentario;
 import ups.edu.com.ProyectosExamen.modelo.Persona;
+import ups.edu.com.ProyectosExamen.utils.SessionUtils;
 
 @Named
 @RequestScoped
@@ -20,10 +21,12 @@ public class PersonaBean {
 	private PersonaDAO personaDAO;
 	
 	private Persona persona;
+	private Persona personaLogeada;
 	private Comentario comentario;
 	
 	@PostConstruct
 	private void Init() {
+		personaLogeada = SessionUtils.getInfoUsuarioLogeado();
 		persona = new Persona();
 		comentario = new Comentario();
 	}
@@ -53,6 +56,17 @@ public class PersonaBean {
 	public void setPersonaDAO(PersonaDAO personaDAO) {
 		this.personaDAO = personaDAO;
 	}
+
+	
+	public Persona getPersonaLogeada() {
+		return personaLogeada;
+	}
+
+
+	public void setPersonaLogeada(Persona personaLogeada) {
+		this.personaLogeada = personaLogeada;
+	}
+	
 	
 	public String saveUser() {
 		personaDAO.savePerson(persona);
