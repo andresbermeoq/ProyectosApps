@@ -1,5 +1,6 @@
 package ups.edu.com.ProyectosExamen.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,7 +10,6 @@ import javax.inject.Named;
 
 import ups.edu.com.ProyectosExamen.DAO.ComentarioDAO;
 import ups.edu.com.ProyectosExamen.DAO.PersonaDAO;
-import ups.edu.com.ProyectosExamen.gestion.GestionComentariosON;
 import ups.edu.com.ProyectosExamen.modelo.Comentario;
 import ups.edu.com.ProyectosExamen.modelo.Persona;
 import ups.edu.com.ProyectosExamen.utils.SessionUtils;
@@ -98,7 +98,10 @@ public class PersonaBean {
 	}
 	
 	public List<Comentario> allComentarios() {
-		return comentarioDAO.findAllComments();
+		List<Comentario> comentarios = new ArrayList<Comentario>();
+		comentarios = comentarioDAO.findAllComments();
+		System.out.println("Aqui estan los comentarios" + comentarios);
+		return comentarios;
 	}
 
 }

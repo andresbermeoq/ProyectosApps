@@ -3,26 +3,38 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
+      
 
-<h:head></h:head> 
+
+<h:head>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<title>Login</title>
+</h:head> 
 <body> 
 
 	<h1>Login de Usuarios</h1>
 	
+	<div class="container">
+		<h:form>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email</label>
+			<h:inputText class="form-control" value="#{loginBean.email}" />
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword">Password</label>
+			<h:inputSecret class="form-control" value="#{loginBean.password}" />
+		</div>
+		<h:commandButton class="btn btn-primary" action="#{loginBean.validate()}" value="Ingresar" />
+		</h:form>
+	</div>
+	<br />
+	<div class="container">
+		<h:form>
+			<h:commandButton class="btn btn-primary" action="Persona" value="Registro" />
+		</h:form>
+	</div>
 	
-	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Email" />
-			<h:inputText value="#{loginBean.email}" />
-			<h:outputLabel value="Password" />
-			<h:inputText value="#{loginBean.password}" />
-			<h:commandButton action="#{loginBean.validate()}" value="Ingresar" />
-		</h:panelGrid>
-	</h:form>
-	
-	<h:form>
-		<h:commandButton action="Persona" value="Registro" />
-	</h:form>
 	
 	
 

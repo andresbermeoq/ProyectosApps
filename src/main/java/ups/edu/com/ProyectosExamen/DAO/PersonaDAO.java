@@ -8,4 +8,5 @@ public interface PersonaDAO {
 	public boolean savePerson(Persona isPersona);
 	public List<Persona> findAllPersons();
 	public Persona findPersona(String email, String password);
+	public boolean findPersonaClient(String email, String password);
 }

@@ -107,6 +107,15 @@
             <artifactId>jakarta.enterprise.cdi-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/javax/javaee-api -->
+		<dependency>
+		    <groupId>javax</groupId>
+		    <artifactId>javaee-api</artifactId>
+		    <version>8.0.1</version>
+		    <scope>provided</scope>
+		</dependency>
+        
 
         <!-- Bean Validation Implementation 
            Provides portable constraints such as @Email 

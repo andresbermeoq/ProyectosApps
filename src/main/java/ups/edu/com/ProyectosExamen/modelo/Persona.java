@@ -1,19 +1,14 @@
 package ups.edu.com.ProyectosExamen.modelo;
 
 import java.io.Serializable;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -36,11 +31,6 @@ public class Persona implements Serializable {
 	private String personaPassword;
 	@Column(name = "persona_email")
 	private String personaEmail;
-	
-	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "persona", cascade = CascadeType.ALL)
-	private List<Comentario> comentario;
-
 	
 	public int getPersonaId() {
 		return personaId;
@@ -71,17 +61,6 @@ public class Persona implements Serializable {
 		this.personaPassword = personaPassword;
 	}
 
-
-	public List<Comentario> getComentario() {
-		return comentario;
-	}
-
-
-	public void setComentario(List<Comentario> comentario) {
-		this.comentario = comentario;
-	}
-
-
 	public String getPersonaEmail() {
 		return personaEmail;
 	}
@@ -95,7 +74,7 @@ public class Persona implements Serializable {
 	@Override
 	public String toString() {
 		return "Persona [personaId=" + personaId + ", personaNombre=" + personaNombre + ", personaPassword="
-				+ personaPassword + ", personaEmail=" + personaEmail + ", comentario=" + comentario + "]";
+				+ personaPassword + ", personaEmail=" + personaEmail + "]";
 	}
 
 	

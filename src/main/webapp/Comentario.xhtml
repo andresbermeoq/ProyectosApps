@@ -4,16 +4,29 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<title>Tienda Virtual</title>
+</h:head> 
 <body> 
 
-	Bienvenido: <h:outputText value="#{personaBean.personaLogeada.personaNombre}" />
 	
-	<h:form>
-		<h:commandButton action="#{loginBean.inValidate()}" value="Salir" />
-	</h:form>
 	
-	<h:form>
+	<div class="container">
+		<div class="form-inline">
+			<div class="form-group mb-2">
+				<h2>Bienvenido: </h2>
+				<h:outputText value="#{personaBean.personaLogeada.personaNombre}" />
+			</div>
+			<h:form>
+				<h:commandButton class="btn btn-primary mb-2" action="#{loginBean.inValidate()}" value="Salir" />
+			</h:form>
+		</div>
+	</div>
+	<br />
+	
+	<div class="container">
+		<h:form>
 		<h:outputText value="Comentario" />
 		<h:inputText value="#{personaBean.comentario.comentarioString}" />
 		
@@ -30,6 +43,12 @@
 			#{comentarios.persona.personaNombre}
 		</h:column>
 	</h:dataTable>
+	
+	</div>
+	
+	
+	
+	
 	
 	
 

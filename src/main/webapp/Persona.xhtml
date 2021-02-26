@@ -4,24 +4,34 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<h:head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<title>Registro</title>
+</h:head> 
 <body> 
 
 	<h1>Registro de Personas</h1>
 	
 	
+	<div class="container">
+		<h:form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Nombre</label>
+				<h:inputText class="form-control" value="#{personaBean.persona.personaNombre}" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email</label>
+				<h:inputText class="form-control" value="#{personaBean.persona.personaEmail}" />
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Password</label>
+				<h:inputSecret class="form-control" value="#{personaBean.persona.personaPassword}" />
+			</div>
+			<h:commandButton class="btn btn-primary" action="#{personaBean.saveUser()}" value="Guardar" />
+		</h:form>
 	
-	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputLabel value="Nombre" />
-			<h:inputText value="#{personaBean.persona.personaNombre}" />
-			<h:outputLabel value="Email" />
-			<h:inputText value="#{personaBean.persona.personaEmail}" />
-			<h:outputLabel value="Password" />
-			<h:inputText value="#{personaBean.persona.personaPassword}" />
-			<h:commandButton action="#{personaBean.saveUser()}" value="Guardar" />
-		</h:panelGrid>
-	</h:form>
+	</div>
+	
 
 </body> 
 </html>

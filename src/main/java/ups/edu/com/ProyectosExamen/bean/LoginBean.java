@@ -66,7 +66,6 @@ public class LoginBean {
 
 
 	public String validate() {
-		
 		try {
 			persona = personaDAO.findPersona(email, password);
 			SessionUtils.setInfoUsuarioLogeado(persona);
@@ -74,7 +73,7 @@ public class LoginBean {
 		} catch (Exception e) {
 			email = "";
 			password = "";
-		}		
+		}
 		return null;
 	}
 	
